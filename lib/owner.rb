@@ -1,14 +1,26 @@
 class Owner
-  attr_reader :name, :species
+  attr_reader :name, :species, :cats, :dogs
   @@owners = []
   def initialize(name)
     @name = name
-    @species = human
+    @species = "human"
     @@owners << self
+    @cats = []
+    @dogs = []
   end
   
-  def says_species
-    puts "I am a #{@species}."
+  def say_species
+    "I am a #{@species}."
+  end
+  
+  def buy_cat(cat_name)
+    found_cat = Cat.all.find{|cat| cat.name == cat_name}
+    found_cat.owner= self
+  end
+  
+  def buy_dog(dog_name)
+    found_dog = Dog.all.find{|dog| dog.name == dog_name}
+    found_dog.owner = self
   end
   
   def self.all 
@@ -18,5 +30,9 @@ class Owner
   def self.count
     @@owners.length 
   end
+  
+  def self.reset_all
+    @@owners = []
+  end 
   # code goes here
 end
