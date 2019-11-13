@@ -19,7 +19,10 @@ class Owner
   end
   
   def buy_dog(dog_name)
+    puts dog_name
+    puts Dog.all
     found_dog = Dog.all.find{|dog| dog.name == dog_name}
+    puts found_dog
     found_dog.owner = self
   end
   
