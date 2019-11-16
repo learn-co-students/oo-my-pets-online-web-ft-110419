@@ -37,14 +37,20 @@ class Owner
   end
   
   def feed_cats
-    self.cats.map {|cat cat.mood = "happy"}
+    self.cats.map {|cat| cat.mood = "happy"}
   end
-
+  
   def sell_pets
-    self.cats.map do |cat|
-      cat.mood = "happy" 
-      cat.owner = nil
+    pets = self.cats.concat self.dogs
+    pets.map do |pet| 
+      pet.mood = "nervous"
+      pet.owner = nil
     end
+  end
+  
+  def list_pets
+    pets = self.cats.concat self.dogs
+    binding.pry
   end
   
   def self.all
