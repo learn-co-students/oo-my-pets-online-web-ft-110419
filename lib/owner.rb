@@ -19,10 +19,6 @@ class Owner
     return "I am a #{@species}."  # equals "I am a human."
   end 
   
-  def self.count 
-    @@all.size
-  end
-  
   def self.count
     @@all.length
   end
