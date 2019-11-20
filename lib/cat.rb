@@ -1,9 +1,19 @@
 class Cat
-  # code goes here
+ 
+  attr_accessor :owner, :mood 
+  attr_reader :name 
+
+  @@all = []
+  
+  def initialize(name, owner)
+    @name = name
+    @owner = owner 
+    @mood = "nervous"
+    @@all << self 
+  end 
+  
+  def self.all
+    @@all
+  end 
+
 end
-
-
-# class Cat is initialized with a name and an Owner object
-# some attributes should be readable/writable 
-# some attributes need to be just setters attr_writer
-# some attributes need to be just getters attr_reader
